@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "foldingUserName": "tenchimuyo93",
+    "displayName": "tenchimuyo93",
+    "passkey": "13d79997************************",
+    "category": "AMD_GPU",
+    "profileLink": "https://extremehw.net/profile/405-tenchimuyo93/",
+    "liveStatsLink": "http://tenchimuyo93folding.epizy.com/summary.html",
+    "hardware": {
+      "id": 42,
+      "hardwareName": "Ellesmere XT [Radeon RX 470/480/570/580/590]",
+      "displayName": "Radeon RX 470/480/570/580/590",
+      "hardwareMake": "AMD",
+      "hardwareType": "GPU",
+      "multiplier": 46.64,
+      "averagePpd": 381318
+    },
+    "team": {
+      "id": 1,
+      "teamName": "Fluffy Pink Ninjas",
+      "forumLink": "https://extremehw.net/topic/1087-the-fluffy-pink-ninjas"
+    },
+    "role": "MEMBER"
+  },
+  {
+    "id": 33,
+    "foldingUserName": "pioneerisloud",
+    "displayName": "pioneerisloud",
+    "passkey": "45fc2116************************",
+    "category": "AMD_GPU",
+    "profileLink": "https://extremehw.net/profile/373-pioneerisloud/",
+    "hardware": {
+      "id": 42,
+      "hardwareName": "Ellesmere XT [Radeon RX 470/480/570/580/590]",
+      "displayName": "Radeon RX 470/480/570/580/590",
+      "hardwareMake": "AMD",
+      "hardwareType": "GPU",
+      "multiplier": 46.64,
+      "averagePpd": 381318
+    },
+    "team": {
+      "id": 9,
+      "teamName": "rat's nest",
+      "forumLink": "https://extremehw.net/topic/1436-rats-nest/"
+    },
+    "role": "MEMBER"
+  },
+  {
+    "id": 35,
+    "foldingUserName": "axipher",
+    "displayName": "axipher",
+    "passkey": "f2ac7962************************",
+    "category": "WILDCARD",
+    "profileLink": "https://extremehw.net/profile/27-axipher/",
+    "hardware": {
+      "id": 129,
+      "hardwareName": "GM107 [GeForce GTX 750 Ti] 1389",
+      "displayName": "GeForce GTX 750 Ti",
+      "hardwareMake": "NVIDIA",
+      "hardwareType": "GPU",
+      "multiplier": 87,
+      "averagePpd": 204445
+    },
+    "team": {
+      "id": 2,
+      "teamName": "Foldaholics",
+      "forumLink": "https://extremehw.net/topic/1109-the-foldaholics"
+    },
+    "role": "MEMBER"
+  }
+]
