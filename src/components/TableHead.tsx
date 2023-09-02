@@ -15,23 +15,16 @@ export const TableHead = (props: any) => {
         <thead>
             <tr>
                 {props.columns.map((column: any) => {
-                    let thClassName:string = "unselectable";
-
-                    if (!column.sortable) {
-                        return <th key={column.accessor} className={thClassName}>{column.label}</th>
-                    }
-
-                    let additionalThClassName:string = sortField === column.accessor && order === "asc"
+                    let thClassName:string = sortField === column.accessor && order === "asc"
                         ? "up"
                         : sortField === column.accessor && order === "desc"
                             ? "down"
                             : "default";
-                    thClassName += " " + additionalThClassName;
 
                     return (
                         <th
                             key={column.accessor}
-                            className={thClassName}
+                            className={`unselectable ${thClassName}`}
                             onClick={() =>
                                 handleSortingChange(column.accessor)
                             }
