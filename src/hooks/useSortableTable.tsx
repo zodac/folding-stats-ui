@@ -16,8 +16,7 @@ function getDefaultSorting(defaultTableData: any[], columns: any) {
         if (b[accessor] === null) return -1;
         if (a[accessor] === null && b[accessor] === null) return 0;
 
-        const ascending = a[accessor]
-            .toString()
+        const ascending = a[accessor].toString()
             .localeCompare(b[accessor].toString(), "en", {
                 numeric: true,
             });
@@ -36,7 +35,8 @@ export const useSortableTable = (data: any, columns: any) => {
                 if (b[sortField] === null) return -1;
                 if (a[sortField] === null && b[sortField] === null) return 0;
                 return (
-                    a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
+                    a[sortField].toString()
+                    .localeCompare(b[sortField].toString(), "en", {
                         numeric: true,
                     }) * (sortOrder === "asc" ? 1 : -1)
                 );
