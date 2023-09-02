@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
-import { useSortableTable } from "../util/useSortableTable";
+import { useSortableTable } from "../hooks/useSortableTable";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
 
@@ -52,10 +52,7 @@ const HardwaresTable = () => {
     ];
 
     const [loadingData, setLoadingData] = useState(true);
-    const { tableData, setTableData, handleSorting } = useSortableTable(
-        [],
-        hardwaresColumns
-    );
+    const { tableData, setTableData, handleSorting } = useSortableTable([], hardwaresColumns);
 
     useEffect(() => {
         async function getData() {
@@ -73,11 +70,7 @@ const HardwaresTable = () => {
         <table className="table">
             <caption>Hardwares on the system</caption>
             <TableHead columns={hardwaresColumns} handleSorting={handleSorting} />
-            {loadingData ? (
-                ""
-            ) : (
-                <TableBody tableData={tableData} columns={hardwaresColumns} />
-            )}
+            {loadingData ? "" : <TableBody tableData={tableData} columns={hardwaresColumns} />}
         </table>
     );
 };
