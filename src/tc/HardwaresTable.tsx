@@ -61,19 +61,13 @@ const HardwaresTable = () => {
         async function getData() {
             await axios
                 .get("https://internal.axihub.ca/folding/hardware")
-                .then((response: AxiosResponse) => {
-                    // console.log(response.data);
-                    setTableData(response.data);
-                });
+                .then((response: AxiosResponse) => setTableData(response.data));
         }
+
         if (loadingData) {
-            getData().then((r) => {
-                setLoadingData(false);
-            });
+            getData().then(() => setLoadingData(false));
         }
     }, [loadingData, setTableData]);
-
-    console.log("tableData", tableData);
 
     return (
         <table className="table">
