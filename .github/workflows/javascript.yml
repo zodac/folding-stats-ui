@@ -3,6 +3,8 @@ name: Javascript CI
 on:
   push:
     branches: [ master ]
+    paths-ignore:
+      - 'LICENSE'
 
 jobs:
   analyze:
@@ -69,7 +71,7 @@ jobs:
           sonarsource/sonar-scanner-cli:10.0 \
             -Dsonar.projectKey=folding-stats-ui  \
             -Dsonar.projectName=folding-stats-ui  \
-            -Dsonar.sources=/usr/src/src/,/usr/src/Dockerfile,/usr/src/docker/frontend/scripts \
+            -Dsonar.sources=/usr/src/src/,/usr/src/docker/frontend/Dockerfile,/usr/src/docker/frontend/scripts \
             -Dsonar.token=${{ secrets.SONARQUBE_PAT }} \
             -Dsonar.docker.hadolint.reportPaths=hadolint-report.json \
             -Dsonar.css.stylelint.reportPaths=stylelint-report.json
