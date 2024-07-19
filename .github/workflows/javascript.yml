@@ -74,4 +74,5 @@ jobs:
             -Dsonar.sources=/usr/src/src/,/usr/src/docker/frontend/Dockerfile,/usr/src/docker/frontend/scripts \
             -Dsonar.token=${{ secrets.SONARQUBE_PAT }} \
             -Dsonar.docker.hadolint.reportPaths=hadolint-report.json \
-            -Dsonar.css.stylelint.reportPaths=stylelint-report.json
+            -Dsonar.css.stylelint.reportPaths=stylelint-report.json \
+            -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
