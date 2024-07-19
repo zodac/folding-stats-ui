@@ -1,4 +1,4 @@
-import {mapEnumValue} from "../hooks/mapEnumValue";
+import {EnumMapper} from "../hooks/EnumMapper";
 
 export const TableBody = (props: any) => {
     return (
@@ -26,7 +26,7 @@ export const TableBody = (props: any) => {
                         } else if (column.type === "double") {
                             value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                         } else if (column.type === "enum") {
-                            value = mapEnumValue(column.accessor, value);
+                            value = new EnumMapper().map(column.accessor, value);
                         } else {
                             value = value.toLocaleString();
                         }

@@ -1,4 +1,11 @@
-export function mapEnumValue(field: string, value: string) {
+export class EnumMapper {
+
+  public map(field: string, value: string): string {
+    return mapEnumValue(field, value);
+  }
+}
+
+function mapEnumValue(field: string, value: string) {
     if (field === "category"){
         return mapCategory(value);
     }

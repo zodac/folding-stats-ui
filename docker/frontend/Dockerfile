@@ -4,9 +4,7 @@ FROM node:${NODE_VERSION}-slim AS node_builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm cache clean --force && \
-    npm install --ignore-scripts
-
+RUN npm install --ignore-scripts
 COPY ./ ./
 
 # Build the application
