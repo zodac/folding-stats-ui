@@ -10,10 +10,6 @@ function mapEnumValue(field: string, value: string) {
         return mapCategory(value);
     }
 
-    if (field === "role"){
-        return mapRole(value);
-    }
-
     if (field === "hardwareMake"){
         return mapHardwareMake(value);
     }
@@ -22,20 +18,13 @@ function mapEnumValue(field: string, value: string) {
         return mapHardwareType(value);
     }
 
+    if (field === "role"){
+        return mapRole(value);
+    }
+
     return value;
 }
 
-function mapRole(value: string) {
-    if (value.toLowerCase() === "captain") {
-        return "Captain"
-    }
-
-    if (value.toLowerCase() === "member") {
-        return "Member"
-    }
-
-    return value
-}
 
 function mapCategory(value: string) {
     if (value.toLowerCase() === "amd_gpu") {
@@ -76,6 +65,18 @@ function mapHardwareType(value: string) {
 
     if (value.toLowerCase() === "cpu") {
         return "CPU"
+    }
+
+    return value
+}
+
+function mapRole(value: string) {
+    if (value.toLowerCase() === "captain") {
+        return "Captain"
+    }
+
+    if (value.toLowerCase() === "member") {
+        return "Member"
     }
 
     return value

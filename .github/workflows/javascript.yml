@@ -17,12 +17,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.7
 
-      # Additional CSS Analysis
       - name: Set up Node.js
         uses: actions/setup-node@v4.0.3
         with:
           node-version: '22.4'
 
+      - name: Run tests
+        run: npm run test
+
+      # Additional CSS Analysis
       - name: Install StyleLint
         run: npm install -g stylelint@16.7.0 stylelint-config-standard@36.0.1
 
