@@ -34,6 +34,15 @@ describe('EnumMapper', () => {
         expect(enumMapper.map("hardwareType", "INVALID")).toBe("INVALID");
     });
 
+    it('map role', () => {
+        expect(enumMapper.map("role", "captain")).toBe("Captain");
+        expect(enumMapper.map("role", "CaPtaiN")).toBe("Captain");
+        expect(enumMapper.map("role", "member")).toBe("Member");
+        expect(enumMapper.map("role", "MembEr")).toBe("Member");
+        expect(enumMapper.map("role", "invalid")).toBe("invalid");
+        expect(enumMapper.map("role", "INVALID")).toBe("INVALID");
+    });
+
     it('map other', () => {
         expect(enumMapper.map("invalid", "invalid")).toBe("invalid");
         expect(enumMapper.map("invalid", "INVALID")).toBe("INVALID");

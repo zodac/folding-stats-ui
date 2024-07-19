@@ -23,7 +23,8 @@
     "build": "react-scripts build",
     "package-lock-reload": "npm install --ignore-scripts --package-lock-only",
     "start": "react-scripts start",
-    "test": "jest"
+    "test": "jest",
+    "test_with_coverage": "jest --coverage"
   },
   "eslintConfig": {
     "extends": [
