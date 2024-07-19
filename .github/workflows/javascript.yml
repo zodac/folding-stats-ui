@@ -17,6 +17,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.7
 
+      # Additional CSS Analysis
+      - name: Set up Node.js
+        uses: actions/setup-node@v4.0.3
+        with:
+          node-version: '22.4'
+
+      - name: Install StyleLint
+        run: npm install -g stylelint@16.7.0 stylelint-config-standard@36.0.1
+
+      - name: Run StyleLint
+        run: stylelint --config ./ci/.stylelintrc.json --formatter json --max-warnings 0 --output-file stylelint-report.json "src/*.css" || true
+
+      - name: Replace Stylelint directory path to match SonarQube mount path
+        run: sed -i 's|/home/runner/work/folding-stats-ui/folding-stats-ui/|/usr/src/|g' stylelint-report.json
+
+      # Additional Docker Analysis
+      - name: Run Hadolint and generate report
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          config: ./ci/.hadolint.yaml
+          dockerfile: Dockerfile
+          output-file: hadolint-report.json
+          recursive: true
+
       # Additional JavaScript Analysis
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3.25.11
@@ -39,5 +63,7 @@ jobs:
           sonarsource/sonar-scanner-cli:10.0 \
             -Dsonar.projectKey=folding-stats-ui  \
             -Dsonar.projectName=folding-stats-ui  \
-            -Dsonar.sources=/usr/src/src/ \
-            -Dsonar.token=${{ secrets.SONARQUBE_PAT }}
+            -Dsonar.sources=/usr/src/src/,/usr/src/Dockerfile,/usr/src/docker/frontend/scripts \
+            -Dsonar.token=${{ secrets.SONARQUBE_PAT }} \
+            -Dsonar.docker.hadolint.reportPaths=hadolint-report.json \
+            -Dsonar.css.stylelint.reportPaths=stylelint-report.json
