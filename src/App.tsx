@@ -1,10 +1,8 @@
-import HardwaresTable from "./tc/HardwaresTable";
+import HardwareTable from "./tc/HardwareTable";
 
 const App = () => {
     return (
-        <div className="table_container">
-            <HardwaresTable/>
-        </div>
+        <HardwareTable/>
     );
 };
 

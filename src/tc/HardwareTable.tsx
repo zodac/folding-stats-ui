@@ -4,8 +4,8 @@ import { useSortableTable } from "../hooks/useSortableTable";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
 
-const HardwaresTable = () => {
-    const hardwaresColumns = [
+const HardwareTable = () => {
+    const hardwareColumns = [
         {
             label: "ID",
             accessor: "id",
@@ -52,7 +52,7 @@ const HardwaresTable = () => {
     ];
 
     const [ loadingData, setLoadingData ] = useState(true);
-    const { tableData, setTableData, handleSorting } = useSortableTable([], hardwaresColumns);
+    const { tableData, setTableData, handleSorting } = useSortableTable([], hardwareColumns);
 
     useEffect(() => {
         async function getData() {
@@ -62,18 +62,19 @@ const HardwaresTable = () => {
         }
 
         if (loadingData) {
-            getData().then(() => setLoadingData(false));
+            getData()
+            .then(() => setLoadingData(false));
         }
     }, [loadingData, setTableData]);
 
     return (
         <div className="tableContainer">
             <table className="scrollableTable sortableTable staticHeaderTable">
-                <TableHead columns={hardwaresColumns} handleSorting={handleSorting} />
-                {loadingData ? "" : <TableBody tableData={tableData} columns={hardwaresColumns} />}
+                <TableHead columns={hardwareColumns} handleSorting={handleSorting} />
+                {loadingData ? "" : <TableBody tableData={tableData} columns={hardwareColumns} />}
             </table>
         </div>
     );
 };
 
-export default HardwaresTable;
+export default HardwareTable;
