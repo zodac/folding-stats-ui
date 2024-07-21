@@ -38,16 +38,16 @@ const HardwareTable = () => {
             type: "enum",
         },
         {
-            label: "Multiplier",
-            accessor: "multiplier",
-            sortable: true,
-            type: "double",
-        },
-        {
             label: "Average PPD",
             accessor: "averagePpd",
             sortable: true,
             type: "int",
+        },
+        {
+            label: "Multiplier",
+            accessor: "multiplier",
+            sortable: true,
+            type: "double",
         },
     ];
 
