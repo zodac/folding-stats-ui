@@ -4,10 +4,9 @@
 
 body {
   color: #383F4D;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
   line-height: 1.5;
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-  sans-serif;
 }
 
 .unselectable {
@@ -15,50 +14,46 @@ body {
 }
 
 /* 
-=================
+=====
 Table
-=====================
+=====
 */
 
-.scrollableTableWithTitle {
-  width: calc(95% - 17px); /* 17px for scrollbar width */
-  max-height: 400px;
+.tableContainer {
   margin: 0 auto;
+  max-height: 400px;
   overflow: auto;
+  width: calc(95% - 17px); /* 17px for scrollbar width */
 }
 
+/*
+=====
+Scrollable Table
+=====
+*/
+
 .scrollableTable {
-  width: 100%;
   border-spacing: 0;
+  width: 100%;
+}
+
+.staticHeaderTable thead th {
+  position: sticky;
+  top: 0;
 }
 
 .scrollableTable th {
-  background: #fff;
-  padding: 8px 10px;
-  border-bottom: 1px solid #1a1a1a;
+  background: #FFFFFF;
+  border-bottom: 1px solid #1A1A1A;
   font-weight: bold;
+  padding: 8px 10px;
   text-align: left;
 }
 
-.scrollableTable th.up {
-  background-image: url("./images/up_arrow.png");
-}
-.scrollableTable th.down {
-  background-image: url("./images/down_arrow.png");
-}
-.scrollableTable th.default {
-  background-image: url("./images/default_arrow.png");
-}
-
-.scrollableTable th.up, th.default, th.down {
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-
-.scrollableTable td {
-  border-top: 1px solid #ddd;
-  padding: 8px 20px;
+.scrollableTable tbody {
+  border-top: none;
+  height: 200px;
+  overflow-y: scroll;
 }
 
 .scrollableTable tbody tr:first-child td {
@@ -69,16 +64,35 @@ Table
   background: #000000;
 }
 
-.staticTableHead thead th {
-  position: sticky;
-  top: 0;
-}
-
-.scrollableTable tbody {
-  height: 200px;
-  overflow-y: scroll;
-}
-
 .scrollableTable tbody tr:nth-child(2n) td {
   background: #AAAAAA;
+}
+
+.scrollableTable td {
+  border-top: 1px solid #DDDDDD;
+  padding: 8px 20px;
+}
+
+/*
+=====
+Sortable Table
+=====
+*/
+
+.sortableTable th.default {
+  background-image: url("./images/default_arrow.png");
+}
+
+.sortableTable th.down {
+  background-image: url("./images/down_arrow.png");
+}
+
+.sortableTable th.up {
+  background-image: url("./images/up_arrow.png");
+}
+
+.sortableTable th.default, th.down, th.up {
+  background-position: center right;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

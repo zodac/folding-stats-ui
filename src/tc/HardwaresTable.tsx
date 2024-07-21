@@ -51,7 +51,7 @@ const HardwaresTable = () => {
         },
     ];
 
-    const [loadingData, setLoadingData] = useState(true);
+    const [ loadingData, setLoadingData ] = useState(true);
     const { tableData, setTableData, handleSorting } = useSortableTable([], hardwaresColumns);
 
     useEffect(() => {
@@ -67,13 +67,11 @@ const HardwaresTable = () => {
     }, [loadingData, setTableData]);
 
     return (
-        <div className="scrollableTableWithTitle">
-            <div className="staticTableHead">
-                <table className="scrollableTable">
-                    <TableHead columns={hardwaresColumns} handleSorting={handleSorting} />
-                    {loadingData ? "" : <TableBody tableData={tableData} columns={hardwaresColumns} />}
-                </table>
-            </div>
+        <div className="tableContainer">
+            <table className="scrollableTable sortableTable staticHeaderTable">
+                <TableHead columns={hardwaresColumns} handleSorting={handleSorting} />
+                {loadingData ? "" : <TableBody tableData={tableData} columns={hardwaresColumns} />}
+            </table>
         </div>
     );
 };
