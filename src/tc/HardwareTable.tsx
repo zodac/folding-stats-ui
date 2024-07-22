@@ -20,9 +20,10 @@ import axios, { AxiosResponse } from "axios";
 import { useSortableTable } from "../hooks/useSortableTable";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
+import { ColumnDefinition } from "../interfaces/ColumnDefinition";
 
 const HardwareTable = () => {
-    const hardwareColumns = [
+    const hardwareColumns: ColumnDefinition[] = [
         {
             label: "ID",
             accessor: "id",

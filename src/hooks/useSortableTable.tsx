@@ -16,11 +16,12 @@
  */
 
 import { useState } from "react";
+import { ColumnDefinition } from "../interfaces/ColumnDefinition";
 
-function getDefaultSorting(defaultTableData: any[], columns: any) {
+function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[]) {
     return [...defaultTableData].sort((a, b) => {
         const filterColumn = columns.filter(
-            (column: { sortByOrder: boolean }) => column.sortByOrder
+            (column) => column.sortByOrder
         );
 
         // Merge all array objects into single object and extract accessor and sortByOrder keys
