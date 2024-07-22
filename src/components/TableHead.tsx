@@ -15,14 +15,15 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-import {useState} from "react";
+import { ColumnSortOrder } from "../interfaces/ColumnDefinition";
+import { useState } from "react";
 
 export const TableHead = (props: any) => {
     const [sortField, setSortField] = useState("");
-    const [order, setOrder] = useState("asc");
+    const [order, setOrder] = useState(ColumnSortOrder.ASC);
 
     const handleSortingChange = (accessor: any) => {
-        const sortOrder = accessor === sortField && order === "asc" ? "desc" : "asc";
+        const sortOrder = accessor === sortField && order === ColumnSortOrder.ASC ? ColumnSortOrder.DESC : ColumnSortOrder.ASC;
         setSortField(accessor);
         setOrder(sortOrder);
         props.handleSorting(accessor, sortOrder);
@@ -32,9 +33,9 @@ export const TableHead = (props: any) => {
         <thead>
             <tr>
                 {props.columns.map((column: any) => {
-                    let thClassName:string = sortField === column.accessor && order === "asc"
+                    let thClassName:string = sortField === column.accessor && order === ColumnSortOrder.ASC
                         ? "up"
-                        : sortField === column.accessor && order === "desc"
+                        : sortField === column.accessor && order === ColumnSortOrder.DESC
                             ? "down"
                             : "default";
 

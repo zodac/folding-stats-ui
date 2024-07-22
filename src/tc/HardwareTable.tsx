@@ -20,53 +20,17 @@ import axios, { AxiosResponse } from "axios";
 import { useSortableTable } from "../hooks/useSortableTable";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
-import { ColumnDefinition } from "../interfaces/ColumnDefinition";
+import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
 
 const HardwareTable = () => {
     const hardwareColumns: ColumnDefinition[] = [
-        {
-            label: "ID",
-            accessor: "id",
-            sortable: true,
-            sortByOrder: "asc",
-            type: "int",
-        },
-        {
-            label: "Hardware Name",
-            accessor: "hardwareName",
-            sortable: false,
-            type: "string",
-        },
-        {
-            label: "Display Name",
-            accessor: "displayName",
-            sortable: true,
-            type: "string",
-        },
-        {
-            label: "Hardware Make",
-            accessor: "hardwareMake",
-            sortable: true,
-            type: "enum",
-        },
-        {
-            label: "Hardware Type",
-            accessor: "hardwareType",
-            sortable: true,
-            type: "enum",
-        },
-        {
-            label: "Average PPD",
-            accessor: "averagePpd",
-            sortable: true,
-            type: "int",
-        },
-        {
-            label: "Multiplier",
-            accessor: "multiplier",
-            sortable: true,
-            type: "double",
-        },
+        new ColumnDefinition("ID", "id", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
+        new ColumnDefinition("Hardware Name", "hardwareName", ColumnType.STRING, false),
+        new ColumnDefinition("Display Name", "displayName", ColumnType.STRING, true),
+        new ColumnDefinition("Hardware Make", "hardwareMake", ColumnType.ENUM, true),
+        new ColumnDefinition("Hardware Type", "hardwareType", ColumnType.ENUM, true),
+        new ColumnDefinition("Average PPD", "averagePpd", ColumnType.INTEGER, true),
+        new ColumnDefinition("Multiplier", "multiplier", ColumnType.DOUBLE, true),
     ];
 
     const [ loadingData, setLoadingData ] = useState(true);

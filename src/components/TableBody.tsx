@@ -15,7 +15,8 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-import {EnumMapper} from "../hooks/EnumMapper";
+import { ColumnType } from "../interfaces/ColumnDefinition";
+import { EnumMapper } from "../hooks/EnumMapper";
 
 export const TableBody = (props: any) => {
     return (
@@ -30,7 +31,7 @@ export const TableBody = (props: any) => {
 
                         let value:string = row[column.accessor];
 
-                        if (column.type === "url") {
+                        if (column.type === ColumnType.URL) {
                             return <td key={column.accessor}><a href={value}>{value}</a></td>
                         }
 
@@ -38,11 +39,11 @@ export const TableBody = (props: any) => {
                         //     value = row[column.accessor][column.jsonAccessor];
                         // }
 
-                        if (column.type === "int") {
+                        if (column.type === ColumnType.INTEGER) {
                             value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
-                        } else if (column.type === "double") {
+                        } else if (column.type === ColumnType.DOUBLE) {
                             value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                        } else if (column.type === "enum") {
+                        } else if (column.type === ColumnType.ENUM) {
                             value = new EnumMapper().map(column.accessor, value);
                         } else {
                             value = value.toLocaleString();

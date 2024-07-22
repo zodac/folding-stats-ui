@@ -16,7 +16,7 @@
  */
 
 import { useState } from "react";
-import { ColumnDefinition } from "../interfaces/ColumnDefinition";
+import { ColumnDefinition, ColumnSortOrder } from "../interfaces/ColumnDefinition";
 
 function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[]) {
     return [...defaultTableData].sort((a, b) => {
@@ -25,7 +25,7 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
         );
 
         // Merge all array objects into single object and extract accessor and sortByOrder keys
-        let { accessor = "id", sortByOrder = "asc" } = Object.assign(
+        let { accessor = "id", sortByOrder = ColumnSortOrder.ASC } = Object.assign(
             {},
             ...filterColumn
         );
@@ -39,14 +39,14 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
                 numeric: true,
             });
 
-        return sortByOrder === "asc" ? ascending : -ascending;
+        return sortByOrder === ColumnSortOrder.ASC ? ascending : -ascending;
     });
 }
 
-export const useSortableTable = (data: any, columns: any) => {
+export const useSortableTable = (data: any, columns: ColumnDefinition[]) => {
     const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
 
-    const handleSorting = (sortField: any, sortOrder: string) => {
+    const handleSorting = (sortField: any, sortOrder: ColumnSortOrder) => {
         if (sortField) {
             const sorted = [...tableData].sort((a, b) => {
                 if (a[sortField] === null) return 1;
@@ -56,7 +56,7 @@ export const useSortableTable = (data: any, columns: any) => {
                     a[sortField].toString()
                     .localeCompare(b[sortField].toString(), "en", {
                         numeric: true,
-                    }) * (sortOrder === "asc" ? 1 : -1)
+                    }) * (sortOrder === ColumnSortOrder.ASC ? 1 : -1)
                 );
             });
             setTableData(sorted);
