@@ -3,5 +3,5 @@ export interface ColumnDefinition {
     accessor: string;
     sortable: boolean;
     sortByOrder?: string;    // TODO: Make enum
-    type: string;           // TODO: Make enum
+    type: string;            // TODO: Make enum
 }
