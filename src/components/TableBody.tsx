@@ -39,7 +39,7 @@ export const TableBody = (props: any) => {
                         // }
 
                         if (column.type === "int") {
-                            value = Number.parseInt(value).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
+                            value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
                         } else if (column.type === "double") {
                             value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                         } else if (column.type === "enum") {
