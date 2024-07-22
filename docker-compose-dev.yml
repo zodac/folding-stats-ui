@@ -1,6 +1,6 @@
 networks:
-  development:
-    name: development
+  ui-development:
+    name: ui-development
     driver: bridge
 
 services:
@@ -15,7 +15,7 @@ services:
     container_name: frontend-dev
     hostname: frontend-dev
     networks:
-      - development
+      - ui-development
     ports:
       - "3000:3000"
     restart: "no"
