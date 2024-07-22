@@ -1,9 +1,9 @@
 import HardwareTable from "./tc/HardwareTable";
 
-const App = () => {
+const Main = () => {
     return (
-        <HardwareTable/>
+        <HardwareTable />
     );
 };
 
-export default App;
+export default Main;
