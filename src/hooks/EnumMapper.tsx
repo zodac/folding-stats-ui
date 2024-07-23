@@ -17,25 +17,25 @@
 
 export class EnumMapper {
 
-  public map(field: string, value: string): string {
-    return mapEnumValue(field, value);
-  }
+    public map(field: string, value: string): string {
+        return mapEnumValue(field, value);
+    }
 }
 
 function mapEnumValue(field: string, value: string) {
-    if (field === "category"){
+    if (field === "category") {
         return mapCategory(value);
     }
 
-    if (field === "hardwareMake"){
+    if (field === "hardwareMake") {
         return mapHardwareMake(value);
     }
 
-    if (field === "hardwareType"){
+    if (field === "hardwareType") {
         return mapHardwareType(value);
     }
 
-    if (field === "role"){
+    if (field === "role") {
         return mapRole(value);
     }
 

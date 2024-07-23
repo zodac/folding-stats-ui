@@ -33,7 +33,7 @@ export const TableHead = (props: any) => {
         <thead>
             <tr>
                 {props.columns.map((column: any) => {
-                    let thClassName:string = sortField === column.accessor && order === ColumnSortOrder.ASC
+                    let thClassName: string = sortField === column.accessor && order === ColumnSortOrder.ASC
                         ? "up"
                         : sortField === column.accessor && order === ColumnSortOrder.DESC
                             ? "down"

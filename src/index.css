@@ -23,7 +23,8 @@ Table
   margin: 0 auto;
   max-height: 400px;
   overflow: auto;
-  width: calc(95% - 17px); /* 17px for scrollbar width */
+  /* 17px for scrollbar width */
+  width: calc(95% - 17px);
 }
 
 /*
@@ -91,7 +92,9 @@ Sortable Table
   background-image: url("./images/up_arrow.png");
 }
 
-.sortableTable th.default, th.down, th.up {
+.sortableTable th.default,
+th.down,
+th.up {
   background-position: center right;
   background-repeat: no-repeat;
   cursor: pointer;

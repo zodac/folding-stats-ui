@@ -33,7 +33,7 @@ const HardwareTable = () => {
         new ColumnDefinition("Multiplier", "multiplier", ColumnType.DOUBLE, true),
     ];
 
-    const [ loadingData, setLoadingData ] = useState(true);
+    const [loadingData, setLoadingData] = useState(true);
     const { tableData, setTableData, handleSorting } = useSortableTable([], hardwareColumns);
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const HardwareTable = () => {
 
         if (loadingData) {
             getData()
-            .then(() => setLoadingData(false));
+                .then(() => setLoadingData(false));
         }
     }, [loadingData, setTableData]);
 

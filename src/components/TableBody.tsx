@@ -21,39 +21,39 @@ import { EnumMapper } from "../hooks/EnumMapper";
 export const TableBody = (props: any) => {
     return (
         <tbody>
-        {props.tableData.map((row: any) => {
-            return (
-                <tr key={row.id}>
-                    {props.columns.map((column: any) => {
-                        if (!row[column.accessor]) {
-                            return <td key={column.accessor}>——</td>
-                        }
+            {props.tableData.map((row: any) => {
+                return (
+                    <tr key={row.id}>
+                        {props.columns.map((column: any) => {
+                            if (!row[column.accessor]) {
+                                return <td key={column.accessor}>——</td>
+                            }
 
-                        let value:string = row[column.accessor];
+                            let value: string = row[column.accessor];
 
-                        if (column.type === ColumnType.URL) {
-                            return <td key={column.accessor}><a href={value}>{value}</a></td>
-                        }
+                            if (column.type === ColumnType.URL) {
+                                return <td key={column.accessor}><a href={value}>{value}</a></td>
+                            }
 
-                        // if (column.type === "json") {
-                        //     value = row[column.accessor][column.jsonAccessor];
-                        // }
+                            // if (column.type === "json") {
+                            //     value = row[column.accessor][column.jsonAccessor];
+                            // }
 
-                        if (column.type === ColumnType.INTEGER) {
-                            value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
-                        } else if (column.type === ColumnType.DOUBLE) {
-                            value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                        } else if (column.type === ColumnType.ENUM) {
-                            value = new EnumMapper().map(column.accessor, value);
-                        } else {
-                            value = value.toLocaleString();
-                        }
+                            if (column.type === ColumnType.INTEGER) {
+                                value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
+                            } else if (column.type === ColumnType.DOUBLE) {
+                                value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                            } else if (column.type === ColumnType.ENUM) {
+                                value = new EnumMapper().map(column.accessor, value);
+                            } else {
+                                value = value.toLocaleString();
+                            }
 
-                        return <td key={column.accessor}>{value}</td>
-                    })}
-                </tr>
-            );
-        })}
+                            return <td key={column.accessor}>{value}</td>
+                        })}
+                    </tr>
+                );
+            })}
         </tbody>
     );
 }
