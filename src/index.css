@@ -39,11 +39,6 @@ Scrollable Table
   width: 100%;
 }
 
-.static-header-table thead th {
-  position: sticky;
-  top: 0;
-}
-
 .scrollable-table th {
   background: #FFFFFF;
   border-bottom: 1px solid #1A1A1A;
@@ -52,10 +47,20 @@ Scrollable Table
   text-align: left;
 }
 
+.static-header-table thead th {
+  position: sticky;
+  top: 0;
+}
+
 .scrollable-table tbody {
   border-top: none;
   height: 200px;
   overflow-y: scroll;
+}
+
+.scrollable-table td {
+  border-top: 1px solid #DDDDDD;
+  padding: 8px 20px;
 }
 
 .scrollable-table tbody tr:first-child td {
@@ -70,10 +75,6 @@ Scrollable Table
   background: #AAAAAA;
 }
 
-.scrollable-table td {
-  border-top: 1px solid #DDDDDD;
-  padding: 8px 20px;
-}
 
 /*
 =====
@@ -83,19 +84,20 @@ Sortable Table
 
 .sortable-table th.default {
   background-image: url("./images/default_arrow.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .sortable-table th.down {
   background-image: url("./images/down_arrow.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .sortable-table th.up {
   background-image: url("./images/up_arrow.png");
-}
-
-.sortable-table th.default,
-th.down,
-th.up {
   background-position: center right;
   background-repeat: no-repeat;
   cursor: pointer;
