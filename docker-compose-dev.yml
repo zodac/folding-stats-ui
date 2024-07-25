@@ -16,6 +16,8 @@ services:
         REST_ENDPOINT_URL: "https://internal.axihub.ca/folding" # "http://127.0.0.1:8079/folding" Use this one eventually
     container_name: frontend-dev
     hostname: frontend-dev
+    environment:
+      FRONTEND_INTERNAL_PORT: 3000
     networks:
       - ui-development
     ports:

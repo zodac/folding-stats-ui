@@ -1,2 +1,2 @@
 #!/bin/ash
-serve -s build
+serve -s build -p "${FRONTEND_INTERNAL_PORT}"
