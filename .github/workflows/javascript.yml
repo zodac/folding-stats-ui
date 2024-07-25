@@ -51,7 +51,8 @@ jobs:
         with:
           config: ./ci/.hadolint.yaml
           dockerfile: Dockerfile
-          format: tty
+          format: json
+          output-file: hadolint-report.json
           recursive: true
 
       # Additional JavaScript Analysis
