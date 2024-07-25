@@ -1,5 +1,5 @@
 failure-threshold: warning
-format: json
+format: tty
 ignored:
   - DL3003
   - DL3008
