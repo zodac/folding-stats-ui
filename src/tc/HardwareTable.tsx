@@ -17,7 +17,7 @@
 
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
-import { useSortableTable } from "../hooks/useSortableTable";
+import { useSortableTable } from "../hooks/TableSorter";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";

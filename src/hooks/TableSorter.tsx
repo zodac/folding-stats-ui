@@ -46,18 +46,27 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
 export const useSortableTable = (data: any, columns: ColumnDefinition[]) => {
     const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
 
-    const handleSorting = (sortField: any, sortOrder: ColumnSortOrder) => {
+    const handleSorting = (sortField: any, sortByOrder: ColumnSortOrder) => {
         if (sortField) {
             const sorted = [...tableData].sort((a, b) => {
-                if (a[sortField] === null) return 1;
-                if (b[sortField] === null) return -1;
-                if (a[sortField] === null && b[sortField] === null) return 0;
-                return (
-                    a[sortField].toString()
-                        .localeCompare(b[sortField].toString(), "en", {
-                            numeric: true,
-                        }) * (sortOrder === ColumnSortOrder.ASC ? 1 : -1)
-                );
+                if (a[sortField] === null) {
+                    return 1;
+                }
+
+                if (b[sortField] === null) {
+                    return -1;
+                }
+
+                if (a[sortField] === null && b[sortField] === null) {
+                    return 0;
+                }
+
+                const ascending = a[sortField].toString()
+                    .localeCompare(b[sortField].toString(), "en", {
+                        numeric: true,
+                    });
+
+                return sortByOrder === ColumnSortOrder.ASC ? ascending : -ascending;
             });
             setTableData(sorted);
         }
