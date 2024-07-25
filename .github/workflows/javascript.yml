@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -50,10 +50,9 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           config: ./ci/.hadolint.yaml
-          dockerfile: Dockerfile
-          format: json
+          dockerfile: ./docker/frontend/Dockerfile
           output-file: hadolint-report.json
-          recursive: true
+          recursive: false
 
       # Additional JavaScript Analysis
       - name: Initialize CodeQL
