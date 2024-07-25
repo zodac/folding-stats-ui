@@ -17,10 +17,6 @@
 
 import HardwareTable from "./tc/HardwareTable";
 
-const Main = () => {
-    return (
-        <HardwareTable />
-    );
-};
+const Main = () => <HardwareTable />;
 
 export default Main;

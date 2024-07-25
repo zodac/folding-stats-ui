@@ -20,9 +20,7 @@ import { ColumnDefinition, ColumnSortOrder } from "../interfaces/ColumnDefinitio
 
 function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[]) {
     return [...defaultTableData].sort((a, b) => {
-        const filterColumn = columns.filter(
-            (column) => column.sortByOrder
-        );
+        const filterColumn = columns.filter(column => column.sortByOrder);
 
         // Merge all array objects into single object and extract accessor and sortByOrder keys
         let { accessor = "id", sortByOrder = ColumnSortOrder.ASC } = Object.assign(
