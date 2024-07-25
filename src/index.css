@@ -19,7 +19,7 @@ Table
 =====
 */
 
-.tableContainer {
+.table-container {
   margin: 0 auto;
   max-height: 400px;
   overflow: auto;
@@ -34,17 +34,17 @@ Scrollable Table
 =====
 */
 
-.scrollableTable {
+.scrollable-table {
   border-spacing: 0;
   width: 100%;
 }
 
-.staticHeaderTable thead th {
+.static-header-table thead th {
   position: sticky;
   top: 0;
 }
 
-.scrollableTable th {
+.scrollable-table th {
   background: #FFFFFF;
   border-bottom: 1px solid #1A1A1A;
   font-weight: bold;
@@ -52,25 +52,25 @@ Scrollable Table
   text-align: left;
 }
 
-.scrollableTable tbody {
+.scrollable-table tbody {
   border-top: none;
   height: 200px;
   overflow-y: scroll;
 }
 
-.scrollableTable tbody tr:first-child td {
+.scrollable-table tbody tr:first-child td {
   border-top: none;
 }
 
-.scrollableTable tbody tr:nth-child(n) td {
+.scrollable-table tbody tr:nth-child(n) td {
   background: #000000;
 }
 
-.scrollableTable tbody tr:nth-child(2n) td {
+.scrollable-table tbody tr:nth-child(2n) td {
   background: #AAAAAA;
 }
 
-.scrollableTable td {
+.scrollable-table td {
   border-top: 1px solid #DDDDDD;
   padding: 8px 20px;
 }
@@ -81,19 +81,19 @@ Sortable Table
 =====
 */
 
-.sortableTable th.default {
+.sortable-table th.default {
   background-image: url("./images/default_arrow.png");
 }
 
-.sortableTable th.down {
+.sortable-table th.down {
   background-image: url("./images/down_arrow.png");
 }
 
-.sortableTable th.up {
+.sortable-table th.up {
   background-image: url("./images/up_arrow.png");
 }
 
-.sortableTable th.default,
+.sortable-table th.default,
 th.down,
 th.up {
   background-position: center right;
