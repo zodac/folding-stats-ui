@@ -24,7 +24,7 @@
     "package-lock-reload": "npm install --ignore-scripts --package-lock-only",
     "start": "react-scripts start",
     "test": "jest",
-    "test_with_coverage": "jest --coverage"
+    "test:coverage": "jest --coverage"
   },
   "eslintConfig": {
     "extends": [

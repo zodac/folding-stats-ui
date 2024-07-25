@@ -21,6 +21,7 @@ import { useSortableTable } from "../hooks/TableSorter";
 import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
+import * as Config from "../hooks/Config";
 
 const HardwareTable = () => {
     const hardwareColumns: ColumnDefinition[] = [
@@ -39,7 +40,7 @@ const HardwareTable = () => {
     useEffect(() => {
         async function getData() {
             await axios
-                .get("https://internal.axihub.ca/folding/hardware")
+                .get(Config.REST_ENDPOINT_URL + "/hardware")
                 .then((response: AxiosResponse) => setTableData(response.data));
         }
 
