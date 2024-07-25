@@ -28,16 +28,7 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
             ...filterColumn
         );
 
-        if (a[accessor] === null) return 1;
-        if (b[accessor] === null) return -1;
-        if (a[accessor] === null && b[accessor] === null) return 0;
-
-        const ascending = a[accessor].toString()
-            .localeCompare(b[accessor].toString(), "en", {
-                numeric: true,
-            });
-
-        return sortByOrder === ColumnSortOrder.ASC ? ascending : -ascending;
+        return compare(a[accessor], b[accessor], sortByOrder);
     });
 }
 
@@ -46,29 +37,31 @@ export const useSortableTable = (data: any, columns: ColumnDefinition[]) => {
 
     const handleSorting = (sortField: any, sortByOrder: ColumnSortOrder) => {
         if (sortField) {
-            const sorted = [...tableData].sort((a, b) => {
-                if (a[sortField] === null) {
-                    return 1;
-                }
-
-                if (b[sortField] === null) {
-                    return -1;
-                }
-
-                if (a[sortField] === null && b[sortField] === null) {
-                    return 0;
-                }
-
-                const ascending = a[sortField].toString()
-                    .localeCompare(b[sortField].toString(), "en", {
-                        numeric: true,
-                    });
-
-                return sortByOrder === ColumnSortOrder.ASC ? ascending : -ascending;
-            });
+            const sorted = [...tableData].sort((a, b) => compare(a[sortField], b[sortField], sortByOrder));
             setTableData(sorted);
         }
     };
 
     return { tableData, setTableData, handleSorting };
 };
+
+function compare(firstSortField: string, secondSortField: string, sortByOrder: ColumnSortOrder): number {
+    if (firstSortField === null && secondSortField === null) {
+        return 0;
+    }
+    
+    if (firstSortField === null) {
+        return 1;
+    }
+
+    if (secondSortField === null) {
+        return -1;
+    }
+
+    const ascending: number = firstSortField.toString()
+        .localeCompare(secondSortField.toString(), "en", {
+            numeric: true,
+        });
+
+    return sortByOrder === ColumnSortOrder.ASC ? ascending : -ascending;
+} 
