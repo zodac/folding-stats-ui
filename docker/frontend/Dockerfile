@@ -4,8 +4,9 @@ FROM node:${NODE_VERSION}-slim AS node_builder
 
 WORKDIR /app
 
-COPY ./public/ ./public/
 COPY *.json ./
+COPY ./public/ ./public/
+COPY ./res/ ./res/
 COPY ./src/ ./src/
 
 # Configure env variables
@@ -29,5 +30,4 @@ COPY --chmod=0755 ./docker/frontend/scripts/entry.sh /entry.sh
 
 RUN npm install --ignore-scripts -g serve@14.2.3
 
-EXPOSE 3000
 CMD ["/entry.sh"]
