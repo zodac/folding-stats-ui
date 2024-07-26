@@ -52,7 +52,7 @@ const HardwareTable = () => {
 
     return (
         <div className="table-container">
-            <table className="scrollable-table sortable-table static-header-table">
+            <table id="hardwareTable" className="scrollable-table sortable-table static-header-table">
                 <TableHead columns={hardwareColumns} handleSorting={handleSorting} />
                 {loadingData ? "" : <TableBody tableData={tableData} columns={hardwareColumns} />}
             </table>
