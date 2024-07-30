@@ -82,21 +82,21 @@ Sortable Table
 =====
 */
 
-.sortable-table th.default {
+.sortable-table th.sort-none {
   background-image: url("../res/images/default_arrow.png");
   background-position: center right;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-.sortable-table th.down {
+.sortable-table th.sort-desc {
   background-image: url("../res/images/down_arrow.png");
   background-position: center right;
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-.sortable-table th.up {
+.sortable-table th.sort-asc {
   background-image: url("../res/images/up_arrow.png");
   background-position: center right;
   background-repeat: no-repeat;

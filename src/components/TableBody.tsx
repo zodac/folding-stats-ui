@@ -15,7 +15,7 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-import { ColumnType } from "../interfaces/ColumnDefinition";
+import { ColumnDefinition, ColumnType } from "../interfaces/ColumnDefinition";
 import { EnumMapper } from "../hooks/EnumMapper";
 
 export const TableBody = (props: any) => {
@@ -24,7 +24,7 @@ export const TableBody = (props: any) => {
             {props.tableData.map((row: any) => {
                 return (
                     <tr key={row.id}>
-                        {props.columns.map((column: any) => {
+                        {props.columns.map((column: ColumnDefinition) => {
                             if (!row[column.accessor]) {
                                 return <td key={column.accessor}>——</td>
                             }

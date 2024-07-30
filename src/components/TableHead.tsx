@@ -15,7 +15,7 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-import { ColumnSortOrder } from "../interfaces/ColumnDefinition";
+import { ColumnDefinition, ColumnSortOrder } from "../interfaces/ColumnDefinition";
 import { useState } from "react";
 
 export const TableHead = (props: any) => {
@@ -32,17 +32,17 @@ export const TableHead = (props: any) => {
     return (
         <thead>
             <tr>
-                {props.columns.map((column: any) => {
-                    let thClassName: string = "default";
+                {props.columns.map((column: ColumnDefinition) => {
+                    let thClassName: string = "sort-none";
                     if (sortField === column.accessor) {
-                        thClassName = order === ColumnSortOrder.DESC ? "down" : "up"; // Allowing 'up' to be the default sort if not properly defined
+                        thClassName = order === ColumnSortOrder.DESC ? "sort-desc" : "sort-asc";
                     }
 
                     return (
                         <th
                             key={column.accessor}
-                            className={`unselectable ${thClassName}`}
-                            onClick={() => handleSortingChange(column.accessor)}
+                            className={column.sortable ? `unselectable ${thClassName}` : "unselectable"}
+                            onClick={column.sortable ? () => handleSortingChange(column.accessor) : () => {}}
                         >
                             {column.label}
                         </th>
