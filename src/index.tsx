@@ -15,9 +15,9 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import HardwareTable from "./tc/HardwareTable";
 import TeamTable from "./tc/TeamTable";
 
@@ -26,9 +26,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
         <div className="root" id="root">
-            <HardwareTable/>
+            <HardwareTable />
             <br />
-            <TeamTable/>
+            <TeamTable />
         </div>
     </React.StrictMode>
 );

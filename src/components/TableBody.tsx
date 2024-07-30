@@ -33,9 +33,7 @@ export const TableBody = (props: any) => {
 
                             if (column.type === ColumnType.URL) {
                                 return <td key={column.accessor}><a href={value}>{value}</a></td>
-                            }
-
-                            if (column.type === ColumnType.INTEGER) {
+                            } else if (column.type === ColumnType.INTEGER) {
                                 value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
                             } else if (column.type === ColumnType.DOUBLE) {
                                 value = Number.parseFloat(value).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 });

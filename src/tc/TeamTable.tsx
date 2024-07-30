@@ -18,8 +18,9 @@
 import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useSortableTable } from "../hooks/TableSorter";
-import { TableHead } from "../components/TableHead";
 import { TableBody } from "../components/TableBody";
+import { TableHead } from "../components/TableHead";
+import { TableTitle } from "../components/TableTitle";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
 import * as Config from "../hooks/Config";
 
@@ -48,6 +49,7 @@ const TeamTable = () => {
 
     return (
         <div className="table-container">
+            <TableTitle title="Teams Table" />
             <table id="teamsTable" className="scrollable-table sortable-table static-header-table">
                 <TableHead columns={teamColumns} handleSorting={handleSorting} />
                 {loadingData ? "" : <TableBody tableData={tableData} columns={teamColumns} />}
