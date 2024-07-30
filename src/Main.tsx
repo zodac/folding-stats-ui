@@ -16,7 +16,17 @@
  */
 
 import HardwareTable from "./tc/HardwareTable";
+import TeamTable from "./tc/TeamTable";
 
-const Main = () => <HardwareTable />;
+const Main = () => {
+    return (
+        <div>
+            <HardwareTable/>
+            <br />
+            <TeamTable/>
+        </div>
+    );
+};
+
 
 export default Main;

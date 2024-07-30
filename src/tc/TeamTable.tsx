@@ -23,24 +23,20 @@ import { TableBody } from "../components/TableBody";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
 import * as Config from "../hooks/Config";
 
-const HardwareTable = () => {
-    const hardwareColumns: ColumnDefinition[] = [
+const TeamTable = () => {
+    const teamColumns: ColumnDefinition[] = [
         new ColumnDefinition("ID", "id", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Hardware Name", "hardwareName", ColumnType.STRING, false),
-        new ColumnDefinition("Display Name", "displayName", ColumnType.STRING, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Hardware Make", "hardwareMake", ColumnType.ENUM, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Hardware Type", "hardwareType", ColumnType.ENUM, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Average PPD", "averagePpd", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Multiplier", "multiplier", ColumnType.DOUBLE, true, ColumnSortOrder.ASC),
+        new ColumnDefinition("Team Name", "teamName", ColumnType.STRING, true, ColumnSortOrder.ASC),
+        new ColumnDefinition("Forum Link", "forumLink", ColumnType.URL, false),
     ];
 
     const [loadingData, setLoadingData] = useState(true);
-    const { tableData, setTableData, handleSorting } = useSortableTable([], hardwareColumns);
+    const { tableData, setTableData, handleSorting } = useSortableTable([], teamColumns);
 
     useEffect(() => {
         async function getData() {
             await axios
-                .get(Config.REST_ENDPOINT_URL + "/hardware")
+                .get(Config.REST_ENDPOINT_URL + "/teams")
                 .then((response: AxiosResponse) => setTableData(response.data));
         }
 
@@ -52,12 +48,12 @@ const HardwareTable = () => {
 
     return (
         <div className="table-container">
-            <table id="hardwareTable" className="scrollable-table sortable-table static-header-table">
-                <TableHead columns={hardwareColumns} handleSorting={handleSorting} />
-                {loadingData ? "" : <TableBody tableData={tableData} columns={hardwareColumns} />}
+            <table id="teamsTable" className="scrollable-table sortable-table static-header-table">
+                <TableHead columns={teamColumns} handleSorting={handleSorting} />
+                {loadingData ? "" : <TableBody tableData={tableData} columns={teamColumns} />}
             </table>
         </div>
     );
 };
 
-export default HardwareTable;
+export default TeamTable;

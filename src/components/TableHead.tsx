@@ -35,16 +35,14 @@ export const TableHead = (props: any) => {
                 {props.columns.map((column: any) => {
                     let thClassName: string = "default";
                     if (sortField === column.accessor) {
-                        thClassName = order === ColumnSortOrder.DESC ? "down" : "up";
+                        thClassName = order === ColumnSortOrder.DESC ? "down" : "up"; // Allowing 'up' to be the default sort if not properly defined
                     }
 
                     return (
                         <th
                             key={column.accessor}
                             className={`unselectable ${thClassName}`}
-                            onClick={() =>
-                                handleSortingChange(column.accessor)
-                            }
+                            onClick={() => handleSortingChange(column.accessor)}
                         >
                             {column.label}
                         </th>
