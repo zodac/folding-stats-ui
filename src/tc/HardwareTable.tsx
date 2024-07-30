@@ -26,8 +26,8 @@ import * as Config from "../hooks/Config";
 const HardwareTable = () => {
     const hardwareColumns: ColumnDefinition[] = [
         new ColumnDefinition("ID", "id", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
-        new ColumnDefinition("Hardware Name", "hardwareName", ColumnType.STRING, false),
         new ColumnDefinition("Display Name", "displayName", ColumnType.STRING, true, ColumnSortOrder.ASC),
+        new ColumnDefinition("Hardware Name", "hardwareName", ColumnType.STRING, false),
         new ColumnDefinition("Hardware Make", "hardwareMake", ColumnType.ENUM, true, ColumnSortOrder.ASC),
         new ColumnDefinition("Hardware Type", "hardwareType", ColumnType.ENUM, true, ColumnSortOrder.ASC),
         new ColumnDefinition("Average PPD", "averagePpd", ColumnType.INTEGER, true, ColumnSortOrder.ASC),

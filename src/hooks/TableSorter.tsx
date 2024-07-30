@@ -32,10 +32,10 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
     });
 }
 
-export const useSortableTable = (data: any, columns: ColumnDefinition[]) => {
+export const useSortableTable = (data: any[], columns: ColumnDefinition[]) => {
     const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
 
-    const handleSorting = (sortField: any, sortByOrder: ColumnSortOrder) => {
+    const handleSorting = (sortField: string, sortByOrder: ColumnSortOrder) => {
         if (sortField) {
             const sorted = [...tableData].sort((a, b) => compare(a[sortField], b[sortField], sortByOrder));
             setTableData(sorted);

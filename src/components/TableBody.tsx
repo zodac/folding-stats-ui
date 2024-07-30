@@ -35,10 +35,6 @@ export const TableBody = (props: any) => {
                                 return <td key={column.accessor}><a href={value}>{value}</a></td>
                             }
 
-                            // if (column.type === "json") {
-                            //     value = row[column.accessor][column.jsonAccessor];
-                            // }
-
                             if (column.type === ColumnType.INTEGER) {
                                 value = Number.parseInt(value, 10).toLocaleString(navigator.language, { maximumFractionDigits: 0 });
                             } else if (column.type === ColumnType.DOUBLE) {
