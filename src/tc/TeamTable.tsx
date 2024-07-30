@@ -24,7 +24,7 @@ import { TableTitle } from "../components/TableTitle";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
 import * as Config from "../hooks/Config";
 
-const TeamTable = () => {
+export const TeamTable = () => {
     const teamColumns: ColumnDefinition[] = [
         new ColumnDefinition("ID", "id", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
         new ColumnDefinition("Team Name", "teamName", ColumnType.STRING, true, ColumnSortOrder.ASC),
@@ -57,5 +57,3 @@ const TeamTable = () => {
         </div>
     );
 };
-
-export default TeamTable;

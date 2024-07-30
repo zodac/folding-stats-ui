@@ -18,6 +18,19 @@
 import { useState } from "react";
 import { ColumnDefinition, ColumnSortOrder } from "../interfaces/ColumnDefinition";
 
+export const useSortableTable = (data: any[], columns: ColumnDefinition[]) => {
+    const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
+
+    const handleSorting = (sortField: string, sortByOrder: ColumnSortOrder) => {
+        if (sortField) {
+            const sorted = [...tableData].sort((a, b) => compare(a[sortField], b[sortField], sortByOrder));
+            setTableData(sorted);
+        }
+    };
+
+    return { tableData, setTableData, handleSorting };
+};
+
 function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[]) {
     return [...defaultTableData].sort((a, b) => {
         const filterColumn = columns.filter(column => column.sortByOrder);
@@ -31,19 +44,6 @@ function getDefaultSorting(defaultTableData: any[], columns: ColumnDefinition[])
         return compare(a[accessor], b[accessor], sortByOrder);
     });
 }
-
-export const useSortableTable = (data: any[], columns: ColumnDefinition[]) => {
-    const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
-
-    const handleSorting = (sortField: string, sortByOrder: ColumnSortOrder) => {
-        if (sortField) {
-            const sorted = [...tableData].sort((a, b) => compare(a[sortField], b[sortField], sortByOrder));
-            setTableData(sorted);
-        }
-    };
-
-    return { tableData, setTableData, handleSorting };
-};
 
 function compare(firstSortField: string, secondSortField: string, sortByOrder: ColumnSortOrder): number {
     if (firstSortField === null && secondSortField === null) {

@@ -24,7 +24,7 @@ import { TableTitle } from "../components/TableTitle";
 import { ColumnDefinition, ColumnSortOrder, ColumnType } from "../interfaces/ColumnDefinition";
 import * as Config from "../hooks/Config";
 
-const HardwareTable = () => {
+export const HardwareTable = () => {
     const hardwareColumns: ColumnDefinition[] = [
         new ColumnDefinition("ID", "id", ColumnType.INTEGER, true, ColumnSortOrder.ASC),
         new ColumnDefinition("Display Name", "displayName", ColumnType.STRING, true, ColumnSortOrder.ASC),
@@ -61,5 +61,3 @@ const HardwareTable = () => {
         </div>
     );
 };
-
-export default HardwareTable;
